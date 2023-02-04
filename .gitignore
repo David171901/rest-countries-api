@@ -30,3 +30,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# ohters
+style-guide.md
+README-template.md
