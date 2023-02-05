@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 
 const Country = ({country, url}) => {
     const { name, population, region, subregion, capital, flags, tld, currencies, languages, borders } = country[0];
+    console.log("🚀 ~ file: [url].js:13 ~ Country ~ currencies", currencies)
     const router = useRouter();
 
   return (
@@ -35,8 +36,8 @@ const Country = ({country, url}) => {
                         </div>
                         <div className='space-y-2 font-thin'>
                             <p><span className='font-semibold'>Top Level Domain:</span> {tld ? tld[0] : ''}</p>
-                            <p><span className='font-semibold'>Currencies:</span> {Object.values(currencies).map(value => value.name).join(', ')}</p>
-                            <p><span className='font-semibold'>Languages:</span> {Object.values(languages).join(', ')}</p>
+                            <p><span className='font-semibold'>Currencies:</span> {currencies && Object.values(currencies).map(value => value.name).join(', ')}</p>
+                            <p><span className='font-semibold'>Languages:</span> {languages && Object.values(languages).join(', ')}</p>
                         </div>
                     </div>
                     <div>
