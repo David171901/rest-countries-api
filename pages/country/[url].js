@@ -49,7 +49,20 @@ const Country = ({country, url}) => {
   )
 }
 
-export async function getServerSideProps ({query: {url}}) {
+export async function getStaticPaths() {
+    const response = await fetch(`${process.env.API_HOST}/all`);
+    const countries = await response.json();
+
+    const paths = countries.map((country) => ({
+      params: { 
+        url: country.name.common.toLowerCase(),
+       },
+    }));
+  
+    return { paths, fallback: false };
+  }
+
+export async function getStaticProps ({params: {url}}) {
     const response = await fetch(`${process.env.API_HOST}/name/${url}`);
     const country = await response.json();
     return {
