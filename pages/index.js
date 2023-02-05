@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
+// Components
 import Layout from '@/components/Layout'
 import Form from '@/components/Form'
 import Card from '@/components/Card';
-import { data } from 'autoprefixer';
 
 export default function Home({countries}) {
   const [countriesState, setCountriesState] = useState([...countries])
@@ -34,7 +34,7 @@ export default function Home({countries}) {
 
   return (
     <>
-      <Layout>
+      <Layout title='Countries App'>
         <Form datos={datos} handleChangeDatos={handleChangeDatos}/>
         <div className='container mx-auto px-4 md:px-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 md:gap-16 mt-10'>
           {countriesState.map( (country) => (
@@ -50,7 +50,7 @@ export default function Home({countries}) {
 }
 
 export async function getStaticProps () {
-  const response = await fetch(`https://restcountries.com/v3.1/all`);
+  const response = await fetch(`${process.env.API_HOST}/all`);
   const countries = await response.json();
   return {
     props: {

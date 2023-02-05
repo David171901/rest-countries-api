@@ -1,15 +1,19 @@
-import Layout from '@/components/Layout'
 import React from 'react'
+// Components
+import Layout from '@/components/Layout'
+// Funtions
+import { formatPopulation, capitalize } from '@/helpers';
+// Libraries
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import formatPopulation from '@/helpers';
 
-const Country = ({country}) => {
+
+const Country = ({country, url}) => {
     const { name, population, region, subregion, capital, flags, tld, currencies, languages, borders } = country[0];
     const router = useRouter();
 
   return (
-    <Layout>
+    <Layout title={`Countries App - ${capitalize(url)}`}>
         <div className='container mx-auto px-4 md:px-0 mt-10'>
             <div>
                 <button className="rounded-lg border-2 shadow-2xl px-12 py-2 font-medium transition ease-in duration-300 hover:bg-slate-200 hover:text-black" onClick={() => router.back()}>Back</button>
@@ -46,11 +50,12 @@ const Country = ({country}) => {
 }
 
 export async function getServerSideProps ({query: {url}}) {
-    const response = await fetch(`https://restcountries.com/v3.1/name/${url}`);
+    const response = await fetch(`${process.env.API_HOST}/name/${url}`);
     const country = await response.json();
     return {
       props: {
         country,
+        url,
       }
     }
 }

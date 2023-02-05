@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes'
+
+// Libraries
 import Link from 'next/link';
+import { useTheme } from 'next-themes'
 
 const Header = () => {
 
