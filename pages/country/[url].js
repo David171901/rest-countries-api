@@ -2,7 +2,7 @@ import React from 'react'
 // Components
 import Layout from '@/components/Layout'
 // Funtions
-import { formatPopulation, capitalize } from '@/helpers';
+import { formatPopulation, capitalize, replaceSpaces, replaceUnderscores } from '@/helpers';
 // Libraries
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -55,7 +55,7 @@ export async function getStaticPaths() {
 
     const paths = countries.map((country) => ({
       params: { 
-        url: country.name.common.toLowerCase(),
+        url: replaceSpaces(country.name.common.toLowerCase()),
        },
     }));
   
@@ -63,7 +63,7 @@ export async function getStaticPaths() {
   }
 
 export async function getStaticProps ({params: {url}}) {
-    const response = await fetch(`${process.env.API_HOST}/name/${url}`);
+    const response = await fetch(`${process.env.API_HOST}/name/${replaceUnderscores(url)}`);
     const country = await response.json();
     return {
       props: {
