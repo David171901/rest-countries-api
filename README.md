@@ -8,7 +8,7 @@ This project was developed as part of a Frontend Mentor challenge and consists o
 ## Running the Project
 
 ```bash
-https://github.com/David171901/rest-countries-api.git
+git clone https://github.com/David171901/rest-countries-api.git
 npm install
 npm run dev
 ```
