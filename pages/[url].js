@@ -6,18 +6,18 @@ import { formatPopulation, capitalize, replaceSpaces, replaceUnderscores } from 
 // Libraries
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Country = ({country, url}) => {
     const { name, population, region, subregion, capital, flags, tld, currencies, languages, borders } = country[0];
-    console.log("🚀 ~ file: [url].js:13 ~ Country ~ currencies", currencies)
     const router = useRouter();
 
   return (
     <Layout title={`Countries App - ${capitalize(url)}`}>
         <div className='container mx-auto px-4 md:px-0 mt-10'>
             <div>
-                <button className="rounded-lg border-2 shadow-2xl px-12 py-2 font-medium transition ease-in duration-300 hover:bg-slate-200 hover:text-black" onClick={() => router.back()}>Back</button>
+                <button className="flex justify-center items-center space-x-2 rounded-lg border-2 shadow-2xl px-12 py-2 font-medium transition ease-in duration-300 hover:bg-slate-200 hover:text-black" onClick={() => router.back()}><FontAwesomeIcon className='w-4' icon={faArrowLeft}/> <span>Back</span> </button>
             </div>
             <div className='mt-8 grid grid-cols-1 md:grid-cols-2 md:items-center'>
                 <div>
@@ -27,7 +27,7 @@ const Country = ({country, url}) => {
                     <div>
                         <p className='font-bold text-2xl mb-4'>{name.common}</p>
                     </div>
-                    <div className='md:grid md:grid-cols-2'>
+                    <div className='md:grid md:grid-cols-2 space-y-6 md:space-y-0'>
                         <div className='space-y-2 font-thin'>
                             <p><span className='font-semibold'>Population:</span> {formatPopulation(population)}</p>
                             <p><span className='font-semibold'>Region:</span> {region}</p>

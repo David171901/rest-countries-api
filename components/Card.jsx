@@ -10,7 +10,7 @@ const Card = ({country}) => {
   const { name, population, region, capital, flags } = country;
 
   return (
-    <Link href={`/country/${replaceSpaces(name.common.toLowerCase())}`}>
+    <Link href={`/${replaceSpaces(name.common.toLowerCase())}`}>
       <div className='rounded-2xl overflow-hidden shadow-2xl h-[400px] bg-gray-100 dark:bg-gray-700'>
         <div className='w-full h-1/2'>
           <Image src={flags.png} alt={flags.alt || `${name.common}`} width={450} height={150} className='w-full h-full rounded-2xl'/>

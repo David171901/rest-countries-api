@@ -22,5 +22,5 @@ The application consumes the REST Countries API and displays detailed informatio
 
 ## Demo
 
-A demo of the application can be seen at [https://rest-countries-mulsimsnk-david171901.vercel.app/ ](https://rest-countries-mulsimsnk-david171901.vercel.app/ "Custom title")
+A demo of the application can be seen at [https://rest-countries-api-y2wl.vercel.app/ ](https://rest-countries-api-y2wl.vercel.app/ "Custom title")
 

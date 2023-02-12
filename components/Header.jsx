@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 // Libraries
 import Link from 'next/link';
 import { useTheme } from 'next-themes'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
 
@@ -22,14 +24,14 @@ const Header = () => {
 
     if(currentTheme === 'dark') {
       return (
-        <li className='space-x-2 cursor-pointer' onClick={()=>setTheme('light')}>
-          <span>🌙</span><span>Dark Mode</span>
+        <li className='flex justify-center items-center space-x-2 cursor-pointer' onClick={()=>setTheme('light')}>
+          <FontAwesomeIcon className='w-4' icon={faMoon} /><span>Dark Mode</span>
         </li> 
       )
     } else {
       return (
-        <li className='space-x-2 cursor-pointer' onClick={()=>setTheme('dark')}>
-          <span>🌙</span><span>Dark Mode</span>
+        <li className='flex justify-center items-center space-x-2 cursor-pointer' onClick={()=>setTheme('dark')}>
+          <FontAwesomeIcon className='w-4' icon={faMoon} /><span>Dark Mode</span>
         </li> 
       )
     }
